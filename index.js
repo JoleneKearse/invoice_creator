@@ -3,8 +3,7 @@ const servicesUsed = document.getElementById("services-used")
 let totalAmount = document.getElementById("total-amount")
 const serviceBtns = document.querySelectorAll(".service-btn")
 const serviceBtnArr = []
-const notes = document.getElementById("notes")
-// maybe don't need this variable
+const usedServiceList = []
 let totalAmountOwed = 0
 const submitBtn = document.querySelector(".submit-btn")
 
@@ -39,11 +38,31 @@ serviceBtnArr.forEach( (btn, index) => {
         const serviceUsedGroup = document.createElement("div")
         serviceUsedGroup.classList.add("services-used-group")
         servicesUsed.append(serviceUsedGroup)
+
         // add item
         const serviceUsedItem = document.createElement("p")
         serviceUsedItem.classList.add("services-used-itemization")
         serviceUsedItem.innerHTML = `${availableServices[index].name}`
         serviceUsedGroup.append(serviceUsedItem)
+
+        // add remove link
+        const removeLink = document.createElement("span")
+        removeLink.innerHTML = "Remove"
+        removeLink.classList.add("remove")
+        serviceUsedItem.append(removeLink)
+        usedServiceList.push(removeLink)
+        // event listener 
+        // usedServiceList.forEach((ele, index) => {
+        //     ele.addEventListener("click", () => {
+        //         console.log("clicked")
+        //         usedServiceList.pop(this.serviceUsedGroup)
+        //         serviceUsedGroup.remove()
+        //         serviceUsedItem.remove()
+        //         servicesUsedPrice.remove()
+        //         totalAmountOwed -= availableServices[index].price
+        //     })
+        // })
+
         // add price
         const servicesUsedPrice = document.createElement("p")
         servicesUsedPrice.classList.add("services-used-price")
@@ -54,14 +73,40 @@ serviceBtnArr.forEach( (btn, index) => {
         totalAmountOwed += availableServices[index].price
         totalAmount.textContent = `\$${totalAmountOwed}`
 
+        usedServiceList.forEach((ele, index) => {
+            ele.addEventListener("click", () => {
+                console.log("clicked")
+                usedServiceList.pop(serviceUsedGroup)
+                serviceUsedGroup.remove()
+                serviceUsedItem.remove()
+                servicesUsedPrice.remove()
+                totalAmountOwed -= availableServices[index].price
+            })
+        })
+
         // refresh all on submit
-        submitBtn.addEventListener("click", function() {
-            console.log("clicked")
+        submitBtn.addEventListener("click", () => {
             serviceUsedGroup.remove()
-            serviceUsedItem.remove()
-            servicesUsedPrice.remove()
-            notes.value = ""
+            // serviceUsedItem.remove()
+            // servicesUsedPrice.remove()
+            document.getElementById("notes").value = ""
             totalAmount.textContent = "$0"
         })
     })
 })
+
+// removeEl.addEventListener("click", () => {
+//     usedServiceList.pop(this.serviceUsedGroup)
+//     serviceUsedGroup.remove()
+// })
+
+// usedServiceList.forEach((link, index) => {
+//     link.addEventListener("click", () => {
+//         console.log("clicked")
+//         usedServiceList.pop(serviceUsedGroup)
+//         serviceUsedGroup.remove()
+//         serviceUsedItem.remove()
+//         servicesUsedPrice.remove()
+//         totalAmountOwed -= availableServices[index].price
+//     })
+// })

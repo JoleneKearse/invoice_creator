@@ -65,6 +65,7 @@ button {
     font-size: 14px;
     /* font-size: clamp(1rem, -0.4rem + 4.25vw, 1.75rem); */
     font-weight: 200;
+    cursor: pointer;
     transition: all 1s;
 }
 
@@ -82,22 +83,41 @@ button:active {
     font-size: 12px;
 }
 
+.services-used-itemization {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--clr-white);
+}
+
+.services-used-price {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.dollar-sign {
+    color: var(--clr-grey);
+}
+
+.remove {
+    font-size: 8px;
+    color: var(--clr-grey);
+    background-color: var(--clr-blue-900);
+    text-decoration: none;
+    margin-left: var(--gap-sm);
+    cursor: pointer;
+}
+
+.remove:hover,
+.remove:focus {
+    color: #A50000;
+}
+
 .border {
     border-bottom: .1rem solid var(--clr-white);
     margin: 0 1rem;
 }
 
-#total-amount {
-    text-align: right;
-}
-
-.final-details {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-input[type="textarea"] {
+textarea {
     width: 75%;
     background-color: var(--clr-blue-900);
     color: var(--clr-white);
@@ -156,24 +176,22 @@ button {
 }
 
 .invoice-content {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
     height: 100%;
 }
 
 .invoice-content > * + * {
-    margin-top: var(--gap-med);
+    margin-top: var(--gap-lg);
     padding: 0 1rem;
-    /* padding-bottom: 5rem; */
     background-color: var(--clr-blue-900);
 }
 
 .item-title {
     display: flex;
     justify-content: space-between;
-}
-
-.gap,
-.final-details {
-    margin-bottom: var(--gap-lg);
+    margin-bottom: var(--gap-med);
 }
 
 .services-used-group {
@@ -182,19 +200,15 @@ button {
     justify-content: space-between;
 }
 
-.services-used-itemization {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--clr-white);
+.services-used-group > * + * {
+    margin-bottom: var(--gap-med);
 }
 
-.services-used-price {
-    font-size: 20px;
-    font-weight: 400;
-}
-
-.dollar-sign {
-    color: var(--clr-grey);
+.final-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: var(--gap-lg);
 }
 
 .submit-btn {
