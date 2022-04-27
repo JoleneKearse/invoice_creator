@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Jolene Kearse">
+    <meta name="description" content="An Invoice Creator, which lets you dynamically add services and an itemized invoice using JavaScript. This is the final project of Scrimba's Learn JavaScript for free course.">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <title>Invoice Creator</title>
+</head>
+<body>
+    <div class="card">
+        <div class="title">
+            <h1>Invoice Creator</h1>
+            <p class="msg">Thanks for choosing GoodCorp, LLC!</p>
+        </div>  <!-- / title -->
+
+        <div class="invoice-content">
+            <div id="service-options">
+                <!-- *** buttons to add services will go here *** -->
+            </div>  <!-- / service-options -->
+            <div class="itemization" id="itemization">
+                <div class="item-title gap">
+                    <p>Task</p>
+                    <p>Total</p>
+                </div>
+                <div id="services-used">
+                    <!-- *** services & prices will go here *** -->
+                </div>
+                
+            </div>  <!-- / itemization -->
+
+            <div class="border"></div>
+
+            <div class="final">
+                <div class="item-title">
+                    <p>Notes</p>
+                    <p>Total Amount</p>
+                </div>
+
+                <div class="final-details">
+                    <!-- *** extra notes will go here *** -->
+                    <input type="textarea" name="notes" id="notes">
+                    <p id="total-amount">$0</p>
+                </div>
+                <button type="submit" class="submit-btn"><i class=" fa fa-envelope icon"></i>Send invoice</button>
+            </div>  <!-- / final-details -->
+            
+        </div> <!-- / invoice-content -->
+    </div>  <!-- / card -->
+    <script src="index.js"></script>
+</body>
+</html>
