@@ -20,39 +20,37 @@
             <p class="msg">Thanks for choosing GoodCorp, LLC!</p>
         </div>  <!-- / title -->
 
-        <div class="invoice-content">
-            <div id="service-options">
+        <main>
+            <div id="serviceOptions">
                 <!-- *** buttons to add services will go here *** -->
             </div>  <!-- / service-options -->
-            <div class="itemization" id="itemization">
+
+            <div class="invoice-content">
                 <div class="item-title">
                     <p>Task</p>
                     <p>Total</p>
-                </div>
-                <div id="services-used">
+                </div>  <!-- / item-title -->
+                <div id="billedServices">
                     <!-- *** services used & prices will go here *** -->
                 </div>
-                
-            </div>  <!-- / itemization -->
 
-            <div class="border"></div>
+                <div class="border"></div>
 
-            <div class="final">
-                <div class="item-title">
-                    <p>Notes</p>
-                    <p>Total Amount</p>
-                </div>
-
-                <div class="final-details">
+                <div class="final-section">
+                    <div class="item-title">
+                        <p>Notes</p>
+                        <p>Total Amount</p>
+                    </div>  <!-- / item-title -->
                     <!-- *** extra notes will go here *** -->
-                    <textarea name="notes" id="notes" cols="15" rows="2"></textarea>
-                    <!-- <input type="textarea" name="notes" id="notes"> -->
-                    <p id="total-amount">$0</p>
-                </div>
+                    <div class="item-title">
+                        <textarea name="notes" id="notes" cols="15" rows="2"></textarea>
+                        <!-- <input type="textarea" name="notes" id="notes"> -->
+                        <p id="totalAmount">$0</p>
+                    </div>
+                </div>  <!-- / final-section -->
                 <button type="submit" class="submit-btn"><i class=" fa fa-envelope icon"></i>Send invoice</button>
-            </div>  <!-- / final-details -->
-            
-        </div> <!-- / invoice-content -->
+            </div>  <!-- / invoice-content -->
+        </main>
     </div>  <!-- / card -->
     <script src="index.js"></script>
 </body>

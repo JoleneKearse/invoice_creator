@@ -43,19 +43,55 @@ body {
     place-content: center;
 }
 
-/* ---------- TYPOGRAPHY ---------- */
+/* ---------- TYPOGRAPHY & LAYOUT ---------- */
+.card {
+    min-width: 60%;
+    height: 90vh;
+    background-color: var(--clr-blue-900);
+}
+
+.title {
+    background-color: var(--clr-blue-300);
+    padding: 3rem 4rem;
+}
 
 h1,
 .total-amount {
     font-size: 40px;
-    /* font-size: clamp(2rem, -0.875rem + 8.333333vw, 4.5rem); */
     font-weight: 700;
 }
 
 .msg {
     font-size: 16px;
-    /* font-size: clamp(1rem, -0.4rem + 4.25vw, 1.75rem); */
     font-weight: 200;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    height: 100%;
+}
+
+main > * + * {
+    margin-top: var(--gap-lg);
+    padding: 0 1rem;
+    background-color: var(--clr-blue-900);
+}
+
+#serviceOptions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-sm);
+    justify-content: space-between;
+    margin: var(--gap-med) 1rem 0 1rem;
+}
+
+.invoice-content {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    height: 100%;
 }
 
 button {
@@ -66,6 +102,7 @@ button {
     /* font-size: clamp(1rem, -0.4rem + 4.25vw, 1.75rem); */
     font-weight: 200;
     cursor: pointer;
+    padding: .25rem .5rem;
     transition: all 1s;
 }
 
@@ -78,31 +115,36 @@ button:active {
     transform: scale(.8);
 }
 
+.item-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .item-title > p {
     text-transform: uppercase;
     font-size: 12px;
+    margin-bottom: var(--gap-med);
 }
 
-.services-used-itemization {
+.service-grp {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     font-size: 20px;
-    font-weight: 700;
-    color: var(--clr-white);
-}
-
-.services-used-price {
-    font-size: 20px;
-    font-weight: 400;
+    margin-bottom: var(--gap-sm);
 }
 
 .dollar-sign {
     color: var(--clr-grey);
+    font-size: 20px;
+    order: 1000;
 }
 
 .remove {
     font-size: 8px;
     color: var(--clr-grey);
     background-color: var(--clr-blue-900);
-    text-decoration: none;
     margin-left: var(--gap-sm);
     cursor: pointer;
 }
@@ -110,11 +152,19 @@ button:active {
 .remove:hover,
 .remove:focus {
     color: #A50000;
+    background: none;
 }
 
 .border {
     border-bottom: .1rem solid var(--clr-white);
-    margin: 0 1rem;
+    margin-bottom: var(--gap-med);
+}
+
+.final-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: var(--gap-lg);
 }
 
 textarea {
@@ -122,6 +172,11 @@ textarea {
     background-color: var(--clr-blue-900);
     color: var(--clr-white);
     font-size: 12px;
+    margin-bottom: var(--gap-lg);
+}
+
+#totalAmount {
+    font-size: 40px;
 }
 
 .submit-btn {
@@ -129,11 +184,14 @@ textarea {
     color: var(--clr-white);
     background-color: var(--clr-blue-300) !important;
     vertical-align: middle;
-    transition: all 1.5s;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: var(--gap-lg);
 }
 
 .submit-btn > i {
     font-size: 10px;
+    margin-right: 1rem;
 }
 
 .submit-btn:focus,
@@ -148,75 +206,4 @@ textarea {
 .icon {
     height: 3px;
     aspect-ratio: 1;
-}
-
-/* ---------- LAYOUT ---------- */
-
-.card {
-    min-width: 60%;
-    height: 90vh;
-    background-color: var(--clr-blue-900);
-}
-
-.title {
-    background-color: var(--clr-blue-300);
-    padding: 3rem 4rem;
-}
-
-#service-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--gap-sm);
-    justify-content: space-between;
-    margin: var(--gap-med) 1rem 0 1rem;
-}
-
-button {
-    padding: .25rem .5rem;
-}
-
-.invoice-content {
-    display: flex;
-    flex-direction: column;
-    align-content: space-between;
-    height: 100%;
-}
-
-.invoice-content > * + * {
-    margin-top: var(--gap-lg);
-    padding: 0 1rem;
-    background-color: var(--clr-blue-900);
-}
-
-.item-title {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: var(--gap-med);
-}
-
-.services-used-group {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.services-used-group > * + * {
-    margin-bottom: var(--gap-med);
-}
-
-.final-details {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: var(--gap-lg);
-}
-
-.submit-btn {
-    display: inline-block;
-    width: 100%;
-    margin-bottom: var(--gap-lg);
-}
-
-.submit-btn > i {
-    margin-right: 1rem;
 }
