@@ -40,14 +40,21 @@ body {
     background-image: 
         repeating-linear-gradient(45deg, #787586B3 5%, #78758680 10%);
     display: grid;
-    place-content: center;
+    place-items: center;
+    overflow: hidden;
 }
 
 /* ---------- TYPOGRAPHY & LAYOUT ---------- */
 .card {
-    min-width: 60%;
-    height: 90vh;
+    max-width: 60%;
+    min-height: 70vh;
     background-color: var(--clr-blue-900);
+}
+
+@media screen and (max-width: 681px) {
+    .card {
+        max-width: 95%;
+    }
 }
 
 .title {
@@ -85,6 +92,12 @@ main > * + * {
     gap: var(--gap-sm);
     justify-content: space-between;
     margin: var(--gap-med) 1rem 0 1rem;
+}
+
+@media  screen and (max-width: 430px) {
+    #serviceOptions {
+        justify-content: space-evenly;
+    }
 }
 
 .invoice-content {
