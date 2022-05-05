@@ -86,7 +86,9 @@ serviceBtnArr.forEach((button, index) => {
 
         // refresh all on submit
         submitBtn.addEventListener("click", () => {
+            // clear out all elements
             location.reload()
+            // ensure notes input is cleared
             notes.value = ''
         })
     })
