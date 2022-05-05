@@ -37,8 +37,10 @@ body {
     width: 100%;
     text-align: center;
     background: var(--clr-blue-900);
-    background-image: 
-        repeating-linear-gradient(45deg, #787586B3 5%, #78758680 10%);
+    background-image: url(crumpled_receipts.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     display: grid;
     place-items: center;
     overflow: hidden;
@@ -49,11 +51,13 @@ body {
     max-width: 60%;
     min-height: 70vh;
     background-color: var(--clr-blue-900);
+    box-shadow: 5px 10px 15px #232323B3;
 }
 
 @media screen and (max-width: 681px) {
     .card {
         max-width: 95%;
+        box-shadow: none;
     }
 }
 
