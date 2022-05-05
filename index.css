@@ -131,8 +131,11 @@ button:active {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-size: 20px;
     margin-bottom: var(--gap-sm);
+}
+
+.service-grp > p {
+    font-size: 20px;
 }
 
 .dollar-sign {
@@ -190,9 +193,17 @@ textarea {
 }
 
 .submit-btn > i {
-    font-size: 10px;
+    font-size: 4px;
     margin-right: 1rem;
+    line-height: 1;
+    vertical-align: middle;
 }
+
+/* .icon {
+    width: 3px;
+    aspect-ratio: 1;
+    font-size: 25%;
+} */
 
 .submit-btn:focus,
 .submit-btn:hover {
@@ -203,7 +214,3 @@ textarea {
     transform: scale(.9);
 }
 
-.icon {
-    height: 3px;
-    aspect-ratio: 1;
-}

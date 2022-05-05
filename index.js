@@ -10,10 +10,11 @@ const serviceBtn = document.querySelector('.service-btn')
 const billedServices = document.getElementById('billedServices')
 let totalAmount = document.getElementById('totalAmount')
 let removeBtn = document.querySelectorAll('.remove')
+const notes = document.getElementById('notes')
 let total = 0
 const submitBtn = document.querySelector('.submit-btn')
 // JS-injected elements
-let billedServicesItem
+let billedServiceItem
 let billedServicePrice
 const serviceBtnArr = []
 let billedServicesItems = []
@@ -41,11 +42,11 @@ serviceBtnArr.forEach((button, index) => {
         // add div for grouping
         billedServiceGroup = document.createElement('div')
         // add itemization
-        billedServicesItem = document.createElement('p')
+        billedServiceItem = document.createElement('p')
         removeBtn = document.createElement('button')
         billedServicePrice = document.createElement('p')
 
-        // add items & prices to respective arrays
+        // add items & prices to respective arrays UNLESS it's a repeat
         billedServicesItems.push(availableServices[index].name)
         billedServicesPrices.push(availableServices[index].price)
 
@@ -53,7 +54,7 @@ serviceBtnArr.forEach((button, index) => {
         billedServiceGroup.classList.add('service-grp')
         removeBtn.classList.add('remove')
         // add text
-        billedServicesItem.textContent = `${billedServicesItems[index]}`
+        billedServiceItem.textContent = `${billedServicesItems[index]}`
         removeBtn.innerHTML = 'Remove'
         billedServicePrice.innerHTML = `<span class='dollar-sign'>$</span>${billedServicesPrices[index]}`
 
@@ -64,9 +65,12 @@ serviceBtnArr.forEach((button, index) => {
 
         // append to billedServices
         billedServices.append(billedServiceGroup)
-        billedServiceGroup.append(billedServicesItem)
-        billedServicesItem.append(removeBtn)
+        billedServiceGroup.append(billedServiceItem)
+        billedServiceItem.append(removeBtn)
         billedServiceGroup.append(billedServicePrice)
+
+        // disable previously clicked button to prevent duplicate invoice items
+        serviceBtnArr[index].disabled = true
 
 
         removeBtn.addEventListener('click', function(e) {
@@ -83,6 +87,7 @@ serviceBtnArr.forEach((button, index) => {
         // refresh all on submit
         submitBtn.addEventListener("click", () => {
             location.reload()
+            notes.value = ''
         })
     })
 })
