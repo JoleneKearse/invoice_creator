@@ -17,8 +17,6 @@ const submitBtn = document.querySelector('.submit-btn')
 let billedServiceItem
 let billedServicePrice
 const serviceBtnArr = []
-let billedServicesItems = []
-let billedServicesPrices = []
 
 // set up the buttons
 for (let i = 0; i < availableServices.length; i++) {
@@ -46,20 +44,16 @@ serviceBtnArr.forEach((button, index) => {
         removeBtn = document.createElement('button')
         billedServicePrice = document.createElement('p')
 
-        // add items & prices to respective arrays UNLESS it's a repeat
-        billedServicesItems.push(availableServices[index].name)
-        billedServicesPrices.push(availableServices[index].price)
-
         // add classes
         billedServiceGroup.classList.add('service-grp')
         removeBtn.classList.add('remove')
         // add text
-        billedServiceItem.textContent = `${billedServicesItems[index]}`
+        billedServiceItem.textContent = `${availableServices[index].name}`
         removeBtn.innerHTML = 'Remove'
-        billedServicePrice.innerHTML = `<span class='dollar-sign'>$</span>${billedServicesPrices[index]}`
+        billedServicePrice.innerHTML = `<span class='dollar-sign'>$</span>${availableServices[index].price}`
 
         // sum totalAmount
-        total += parseInt(billedServicesPrices[index])
+        total += parseInt(availableServices[index].price)
         // display total
         totalAmount.textContent = `\$${total}`
 
@@ -80,7 +74,7 @@ serviceBtnArr.forEach((button, index) => {
                 
             }
             // subtract price from total
-            total -= parseInt(billedServicesPrices[index])
+            total -= parseInt(availableServices[index].price)
             totalAmount.textContent = `\$${total}`
         })
 
