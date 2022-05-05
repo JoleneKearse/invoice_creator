@@ -43,7 +43,6 @@ body {
     background-repeat: no-repeat;
     display: grid;
     place-items: center;
-    overflow: hidden;
 }
 
 /* ---------- TYPOGRAPHY & LAYOUT ---------- */
