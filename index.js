@@ -6,17 +6,17 @@ const availableServices = [
 
 // global variables
 const serviceOptions = document.getElementById('serviceOptions')
-const serviceBtn = document.querySelector('.service-btn')
+const serviceBtn = document.querySelectorAll('.service-btn')
 const billedServices = document.getElementById('billedServices')
 let totalAmount = document.getElementById('totalAmount')
 let removeBtn = document.querySelectorAll('.remove')
 const notes = document.getElementById('notes')
-let total = 0
 const submitBtn = document.querySelector('.submit-btn')
-// JS-injected elements
+// program-necessary variables
 let billedServiceItem
 let billedServicePrice
 const serviceBtnArr = []
+let total = 0
 
 // set up the buttons
 for (let i = 0; i < availableServices.length; i++) {
@@ -47,13 +47,14 @@ serviceBtnArr.forEach((button, index) => {
         // add classes
         billedServiceGroup.classList.add('service-grp')
         removeBtn.classList.add('remove')
+
         // add text
         billedServiceItem.textContent = `${availableServices[index].name}`
-        removeBtn.innerHTML = 'Remove'
+        removeBtn.textContent = 'Remove'
         billedServicePrice.innerHTML = `<span class='dollar-sign'>$</span>${availableServices[index].price}`
 
         // sum totalAmount
-        total += parseInt(availableServices[index].price)
+        total += availableServices[index].price
         // display total
         totalAmount.textContent = `\$${total}`
 
@@ -74,7 +75,7 @@ serviceBtnArr.forEach((button, index) => {
                 
             }
             // subtract price from total
-            total -= parseInt(availableServices[index].price)
+            total -= availableServices[index].price
             totalAmount.textContent = `\$${total}`
         })
 
