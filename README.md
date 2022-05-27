@@ -8,3 +8,5 @@ The object was to make an Invoice Creator, which could dynamically add a company
 Special notes can be added and the total amount due would be automatically updated.
 
 The extra feature is a remove button to take the item and price off the itemized invoice, and, of course, deduct that amount from the total.
+
+See the [live preview](https://jolenekearse.github.io/invoice_creator/)!
